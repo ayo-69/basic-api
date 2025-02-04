@@ -8,8 +8,9 @@ import (
 	"encoding/json"
 )
 
-type Message struct {
-	Content string `json:"content"`
+type JsonObj struct {
+	Message string `json:"message"`
+	Author string `json:"author"`
 }
 
 func main() {
@@ -30,10 +31,11 @@ func main() {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 
-	msg := Message{
-		Content: "What did you expect, like really what",
+	msg := JsonObj{
+		Message: "What did you expect, like really what?",
+		Author: "Isaac Hayab",
 	}
 
-	fmt.Println("User connected")
+	fmt.Println("Another one gone...")
 	json.NewEncoder(w).Encode(msg)
 }
